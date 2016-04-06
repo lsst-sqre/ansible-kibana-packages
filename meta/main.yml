@@ -1,0 +1,30 @@
+galaxy_info:
+  author: J. Matt Peterson
+  description: LSST SQuaRE's kibana packages.
+  company: LSST SQuaRE
+  issue_tracker_url: https://github.com/lsst-sqre/ansible-kibana-packages/issues
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+    versions:
+      - 7
+  - name: Ubuntu
+    versions:
+      - trusty
+      - xenial
+  #- name: Debian
+  #  versions:
+  #  - all
+  #  - etch
+  #  - jessie
+  #  - lenny
+  #  - squeeze
+  #  - wheezy
+  galaxy_tags:
+    - kibana
+    - elasticsearch
+    - jvm
+dependencies:
+  - role: jmatt.java-packages
+  - role: jmatt.elasticsearch-packages

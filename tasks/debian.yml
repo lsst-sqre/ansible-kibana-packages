@@ -1,0 +1,11 @@
+---
+# Install Kibana packages on debian based distributions.
+
+- name: Install Kibana repo
+  apt_repository: repo='deb http://packages.elastic.co/kibana/4.5/debian stable main' state=present
+
+- name: Install Kibana packages.
+  apt: name=kibana update_cache=yes state=latest install_recommends=no
+
+- name: Configure Kibana.
+  include: kibana.yml

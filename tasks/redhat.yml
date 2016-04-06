@@ -1,0 +1,17 @@
+---
+# Install Kibana packages on redhat base distributions.
+
+- name: Add the Kibana repository.
+  yum_repository:
+    name: Kibana repository
+    description: Kibana repository for 4.5.x packages.
+    baseurl: http://packages.elastic.co/kibana/4.5/centos
+    gpgkey: http://packages.elastic.co/GPG-KEY-elasticsearch
+    gpgcheck: yes
+    enabled: yes
+
+- name: Install Kibana.
+  yum: name=kibana state=latest
+
+- name: Configure Kibana.
+  include: kibana.yml

@@ -1,0 +1,6 @@
+---
+# Configure the Kibana service.
+
+- name: Start the Kibana service.
+  service: name=kibana state=started
+    

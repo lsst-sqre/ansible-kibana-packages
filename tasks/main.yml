@@ -1,6 +1,9 @@
 ---
 # tasks file for kibana-packages
 
+- name: Stop the Kibana service.
+  service: name=kibana state=stopped
+
 - include: redhat.yml
   when: ansible_os_family == 'RedHat'
 

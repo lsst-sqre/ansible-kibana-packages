@@ -4,8 +4,14 @@
 - name: Install Kibana repo
   apt_repository: repo='deb http://packages.elastic.co/kibana/4.5/debian stable main' state=present
 
+#- name: Install Kibana packages.
+#  apt: name=kibana update_cache=yes state=latest install_recommends=no
+
+- name: Get Kibana deb file.
+  get_url: url=https://download.elastic.co/kibana/kibana/kibana_5.0.0-alpha1_amd64.deb dest=/tmp/kibana_5.0.0-alpha1_amd64.deb
+
 - name: Install Kibana packages.
-  apt: name=kibana update_cache=yes state=latest install_recommends=no
+  apt: deb=/tmp/kibana_5.0.0-alpha1_amd64.deb
 
 - name: Configure Kibana.
   include: kibana.yml
